@@ -42,11 +42,7 @@ body {
   @each $day in $days {
     $index: list.index($days, $day);
     &--start-day-#{$day} &__day:first-child {
-      @if $day == sun {
-        margin-left: 0;
-      } @else {
-        margin-left: ($index - 1) * ($cell-size + $gap);
-      }
+      margin-left: ($index - 1) * ($cell-size + $gap);
     }
   }
 
@@ -63,6 +59,7 @@ body {
     align-items: center;
     transition: all 0.5s;
     cursor: pointer;
+    will-change: transform;
 
     &:hover {
       background: $hover-color;
