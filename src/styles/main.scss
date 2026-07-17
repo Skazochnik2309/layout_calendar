@@ -16,6 +16,7 @@ body {
 }
 
 .calendar {
+  box-sizing: border-box;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -37,21 +38,19 @@ body {
   }
 
   // start-day модифікатор
-  $days_to_offset_map: (
-    sun: 0,
-    mon: 1,
-    tue: 2,
-    wed: 3,
-    thu: 4,
-    fri: 5,
-    sat: 6,
-  );
+$days: mon, tue, wed, thu, fri, sat, sun;
 
-  @each $day, $offset in $days_to_offset_map {
-    &--start-day-#{$day} &__day:first-child {
-      margin-left: $offset * ($cell-size + $gap);
+@each $day in $days {
+  $index: list.index($days, $day);
+  &--start-day-#{$day} &__day:first-child {
+    @if $day == sun {
+      margin-left: 0;
+    } @else {
+      margin-left: ($index - 1) * ($cell-size + $gap);
     }
   }
+}
+
 
   // Стилі комірки
   &__day {
