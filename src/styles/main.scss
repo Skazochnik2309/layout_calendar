@@ -22,7 +22,6 @@ body {
   gap: $gap;
   width: calc(7 * #{$cell-size} + 6 * #{$gap} + 20px);
 
-
   // Номери днів
   @for $i from 1 through 31 {
     &__day:nth-child(#{$i})::before {
@@ -37,21 +36,16 @@ body {
     }
   }
 
-  // start-day модифікатор
-  $days: mon, tue, wed, thu, fri, sat, sun;
-
-  @each $day in $days {
-    $index: list.index($days, $day);
-
+     // start-day модифікатор
+  $days_to_offset_map: (sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6);
+  
+  @each $day, $offset in $days_to_offset_map {
     &--start-day-#{$day} &__day:first-child {
-      @if $day == sun {
-       margin-left: 0;
-      } @else {
-        margin-left: ($index - 1) * ($cell-size + $gap);
-      }
+      margin-left: $offset * ($cell-size + $gap);
     }
   }
-  
+
+
   // Стилі комірки
   &__day {
     position: relative;
