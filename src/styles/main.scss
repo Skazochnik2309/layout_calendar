@@ -59,7 +59,6 @@ body {
     align-items: center;
     transition: all 0.5s;
     cursor: pointer;
-    will-change: transform;
 
     &:hover {
       background: $hover-color;
