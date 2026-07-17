@@ -6,6 +6,10 @@ $hover-color: #FFBFCB;
 $gap: 1px;
 
 .calendar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-wrap: wrap;
   gap: $gap;
