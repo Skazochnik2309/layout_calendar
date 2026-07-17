@@ -6,8 +6,13 @@ $hover-color: #ffbfcb;
 $gap: 1px;
 
 body {
-  margin: 0;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
 }
 
 .calendar {
