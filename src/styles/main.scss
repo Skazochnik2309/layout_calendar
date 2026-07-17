@@ -20,7 +20,6 @@ body {
   flex-wrap: wrap;
   gap: $gap;
   width: calc(7 * #{$cell-size} + 6 * #{$gap} + 20px);
-  margin: auto;
 
   // Номери днів
   @for $i from 1 through 31 {
@@ -68,7 +67,7 @@ body {
       background: $hover-color;
       transform: translateY(-20px);
     }
-    
+
     &::before {
       position: absolute;
       top: 50%;
