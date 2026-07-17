@@ -42,7 +42,11 @@ body {
   @each $day in $days {
     $index: list.index($days, $day);
     &--start-day-#{$day} &__day:first-child {
-      margin-left: ($index - 1) * ($cell-size + $gap);
+      @if $index == 7 or $day == "sun" {
+        margin-left: 0;
+      } @else {
+        margin-left: ($index - 1) * ($cell-size + $gap);
+      }
     }
   }
 
