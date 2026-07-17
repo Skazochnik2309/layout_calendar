@@ -43,7 +43,8 @@ body {
   @each $day in $days {
     $index: list.index($days, $day);
     &--start-day-#{$day} &__day:first-child {
-      @if $index != 7 {margin-left: ($index - 1) * ($cell-size + $gap);
+      @if $index != 7 {
+          margin-left: ($index - 1) * ($cell-size + $gap);
       }
     }
   }
