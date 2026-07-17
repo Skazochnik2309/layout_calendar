@@ -42,13 +42,9 @@ body {
   @each $day in $days {
     $index: list.index($days, $day);
     &--start-day-#{$day} &__day:first-child {
-      @if $index == 7 {
-        margin-left: 0;
-      } @else {
         margin-left: ($index - 1) * ($cell-size + $gap);
       }
     }
-  }
 
   // Стилі комірки
   &__day {
