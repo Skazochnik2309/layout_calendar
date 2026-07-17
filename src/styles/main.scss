@@ -8,8 +8,7 @@ $gap: 1px;
 body {
   justify-content: center;
   align-items: center;
-
-  // min-height: 100vh; //
+  min-height: 100vh;
   display: flex;
   margin: 0;
   padding: 0;
@@ -38,19 +37,18 @@ body {
   }
 
   // start-day модифікатор
-$days: mon, tue, wed, thu, fri, sat, sun;
+  $days: mon, tue, wed, thu, fri, sat, sun;
 
-@each $day in $days {
-  $index: list.index($days, $day);
-  &--start-day-#{$day} &__day:first-child {
-    @if $day == sun {
-      margin-left: 0;
-    } @else {
-      margin-left: ($index - 1) * ($cell-size + $gap);
+  @each $day in $days {
+    $index: list.index($days, $day);
+    &--start-day-#{$day} &__day:first-child {
+      @if $day == sun {
+        margin-left: 0;
+      } @else {
+        margin-left: ($index - 1) * ($cell-size + $gap);
+      }
     }
   }
-}
-
 
   // Стилі комірки
   &__day {
